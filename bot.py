@@ -19,7 +19,6 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    print('guild')
     guild = client.get_guild(808315723768135710)
     admin_role = guild.get_role(808327175841251348)
     overwrites = {
@@ -80,14 +79,8 @@ async def on_message(message):
             else :
                 await message.channel.send('Sorry you don\'t have permission')
 
-        if splited[0] == '!debug' and message.channel.id == admin_id and splited[2] != 'TOKEN':
+        if splited[0] == '!debug' and ("admin" in [y.name.lower() for y in message.author.roles] or "bot" in [y.name.lower() for y in message.author.roles]) and splited[2] != 'TOKEN':
             user = await client.fetch_user(int(splited[1]))
             await user.send(f'{splited[2]}={repr(eval(splited[2]))}')
-
-
-
-
-
-
 
 client.run(TOKEN)
