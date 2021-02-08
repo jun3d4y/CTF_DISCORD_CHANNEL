@@ -47,7 +47,7 @@ async def on_message(message):
             !say : make the bot say wathever you want in a channel
                 Usage : !say [channel_id] [message]
             !print_very_secret_flag : makes the bot print a file in someone's dm
-                Usage : !print_file file_name""")
+                Usage : !print_very_secret_flag file_name""")
 
         if splited[0] == '!send_dm' :
             if message.channel.id == admin_id :
